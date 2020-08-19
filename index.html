@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1 shrink-to-fit-no">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"> 
+	<title>Music Player</title>
+	<link rel="stylesheet" type="text/css" href="card.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"> 
+  <style>
+  
+  *{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+body{
+	background:linear-gradient( 155deg , #c5c5ff 50% ,#fbbcbf 50%);
+	background-repeat: no-repeat;
+	height: 100vh;
+	background-size: cover;
+    
+
+}
+
+.container{
+	margin: auto;
+	margin-top: 110px;
+    border-radius: 15px;
+	width: 265px;
+	height: 400px;
+	background-color: #222626;
+
+
+
+}
+
+.songimg{
+	width: 185px;
+	height: 185px;
+	margin-left: 35px;
+	margin-top: 25px;
+	border-radius: 50%;
+	border:6px solid #dbddcb;
+
+}
+
+.songname{
+	text-align: center;
+	margin-top: 10px;
+    font-weight: bold;
+    color: #e7788c;
+
+}
+
+.singername{
+	text-align: center;
+	margin-top: 7px;
+	color: #a58ccd;
+
+}
+
+.control{
+	margin-top: 15px;
+    margin-left: 47px;
+}
+
+.sign{
+	margin: 7px;
+    
+}
+
+
+
+
+
+
+.social-icon{
+	text-align: center;
+	margin-top: 130px;
+
+}
+
+.fab{
+	margin: 5px;
+	padding: 8px;
+	border:2px solid #222626;
+	border-radius: 50%;
+	font-size: 18px;
+	background-color: #222626;
+	color: #a9c7ec;
+	-webkit-transition: background 0.6s ease;
+	transition: background 0.6s ease;
+}
+
+.fab:hover{
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+	color: #222626;
+	background-color:  #a9c7ec;
+	border-color:#a9c7ec;
+
+}
+
+.copy{
+
+    padding-top: 10px;
+	text-decoration: none;
+	text-align: center;
+	background-color: #fbbcbf ;
+
+}
+
+.copy a {
+	text-decoration: none;
+	font-weight: bold;
+	color:  black;
+	font-size: 20px;
+
+}
+
+
+.probar{
+	width: 180px;
+	height: 2px;
+	margin-top: 25px;
+	margin-left: 40px;
+	background-color: black;
+	display: flex;
+	cursor: pointer;
+}
+
+ #fill{
+	height: 2px;
+	background-color: royalblue;
+	border-radius: 20px;
+}
+
+ #handle{
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: royalblue;
+	margin-left: -5px;
+	transform: scale(2);
+
+}
+  
+  </style>
+  
+  
+  
+	<script>
+  
+
+ var images = ["https://images.hungama.com/c/1/0b3/cf0/39348659/39348659_300x300.jpg", "https://pagalsong.in/uploads//thumbnails/300x300/id3Picture_1750511267.jpg" ,
+               "https://static.upload.solutions/thumbs/100_100/ekoai.jpg" , "https://cover.mr-jatt.im/thumb/489526/Feelings.jpg","https://static.upload.solutions/thumbs/100_100/crbfi.jpg",
+               "https://static.upload.solutions/thumbs/100_100/qiiai.jpg", "https://static.upload.solutions/thumbs/100_100/iwpfi.jpg" , "https://pagalsong.in/uploads//thumbnails/300x300/id3Picture_2060177058.jpg",
+               "https://static.upload.solutions/thumbs/100_100/tfvfi.jpg","https://static.upload.solutions/thumbs/100_100/hzgai.jpg",
+               "https://static.upload.solutions/thumbs/100_100/lcoai.jpg", "https://static.upload.solutions/thumbs/100_100/limfi.jpg",
+               "https://static.upload.solutions/thumbs/100_100/seufi.jpg", "https://static.upload.solutions/thumbs/100_100/thvfi.jpg",
+               "https://static.upload.solutions/thumbs/100_100/jnbfi.jpg", "https://static.upload.solutions/thumbs/100_100/bjffi.jpg",
+               "https://static.upload.solutions/thumbs/100_100/jmafi.jpg", "https://static.upload.solutions/thumbs/100_100/zwvfi.jpg",
+               "https://static.upload.solutions/thumbs/100_100/sezfi.jpg", "https://static.upload.solutions/thumbs/100_100/dyzfi.jpg",
+               "https://static.upload.solutions/thumbs/100_100/yqbfi.jpg","https://static.upload.solutions/thumbs/100_100/vtpfi.jpg",
+               "https://static.upload.solutions/thumbs/100_100/fggai.jpg", "https://static.upload.solutions/thumbs/100_100/ytbfi.jpg"];
+
+            var num = 0;
+
+		function next(){
+                 
+                 var slider = document.getElementById('moveimg');
+                 num++;
+                 if (num>= images.length) {
+                 	num = 0;
+                 }
+                 slider.src = images[num];
+
+                  var btnimg = document.getElementById('changeimage');
+                  btnimg.src = "play.jpg";
+             }
+
+		function prew(){
+                 
+                 var slider = document.getElementById('moveimg');
+                 num--;
+                 if (num < 0) {
+                 	num = images.length - 1
+                 }
+                 slider.src = images[num];
+                 var btnimg = document.getElementById('changeimage');
+                  btnimg.src = "play.jpg";
+             }
+
+
+ var names = ["High Rated Gabru", " Tera Ban Jaunga" , "Jatt Da Mukabla" , "Feelings", "Yummy", "Backbone", "8 Parche", 
+              "Chal Bombay", "Machayenge","Guitar Sikhda", "Laal Bindi", "Boss", "Kurta Pajama", " Teri Mitti", "Malang","Sheher Ki Ladki"
+              , "vaaste", "Yaari", "Teri Yaar","Yalgaar", "Kamaal", "Khairiyat","Lahore", "shoot da order"];
+
+            var number = 0;
+
+		function nextname(){
+                 
+                 var slid = document.getElementById('movename');
+                 number++;
+                 if (number>= names.length) {
+                 	number = 0;
+                 }
+                 slid.innerHTML = names[number];
+             }
+
+		function prewname(){
+                 
+                 var slid = document.getElementById('movename');
+                 number--;
+                 if (number < 0) {
+                 	number = names.length - 1
+                 }
+                  slid.innerHTML = names[number];
+             }
+		
+
+
+var singer = ["By : Guru Randhawa", "By : Tulsi Kumar" , "By : Sidhu Moose Wala" , "By : Sumit Goswami", "By : Justin Bieber", "By : Hardy Sandhu", "By : Baani Sandhu", 
+              "By : Divine", "By : Emiway", "By : Jassi Gill", "By : Akull", "By : Jass Manak" , "By : Tonny Kakkar", "By : B praak", "By : Ved Sharma", "By : Anand Milind",
+              "By : Dhvani Bhanushali", "By : Nikk", "By : Millind Gaba", "By : Carry Minati", "By : Badshah", "By : Arijit singh", "By : Guru Randhawa", "By : Jass Manak"];
+
+            var sing = 0;
+
+		function nextsinger(){
+                 
+                 var sl = document.getElementById('movesinger');
+                 sing++;
+                 if (sing>= singer.length) {
+                 	sing = 0;
+                 }
+                 sl.innerHTML = singer[sing];
+             }
+
+		function prewsinger(){
+                 
+                 var sl = document.getElementById('movesinger');
+                 sing--;
+                 if (sing < 0) {
+                 	sing = singer.length - 1
+                 }
+                  sl.innerHTML = singer[sing];
+             }
+		
+
+
+
+var ganna = ["https://cdn9.upload.solutions/baabd7548082c946d2e457fc879e53dd/gzbzv/High%20Rated%20Gabru-(Mr-Jatt.com).mp3","https://pagalsong.in/uploads/systemuploads/mp3/Kabir%20Singh/Tera%20Ban%20Jaunga%20-%20Kabir%20Singh%20128%20Kbps.mp3",
+             "https://cdn9.upload.solutions/c27358e244deaee149e590e346d735f9/jvxzv/Jatt%20Da%20Muqabla-(Mr-Jatt.com).mp3","https://jatt.download/music/data/Haryanvi/202007/Feelings/128/Feelings_320Kbps_1.mp3",
+             "https://cdn10.upload.solutions/d45d66e31cfeed39747a285943a208ad/dosov/Yummy-(Mr-Jatt.com).mp3", "https://cdn8.upload.solutions/21b353793849b895b31d4cf98aff3145/pflzv/Backbone-(Mr-Jatt.com).mp3",
+             "https://cdn10.upload.solutions/bf1225404580b9212d03d71130cdef9a/uojov/8%20Parche-(Mr-Jatt.com).mp3", "https://pagalsong.in/uploads/systemuploads/mp3/Kohinoor/Chal%20Bombay%20-%20Kohinoor%20128%20Kbps.mp3",
+             "https://cdn10.upload.solutions/eccbad82eb93a0aed137c4f8ccf4aa72/zkaov/Machayenge-(Mr-Jatt.com).mp3", "https://cdn9.upload.solutions/86873d69df581047697e1736fe4211f8/urmzv/Guitar%20Sikhda-(Mr-Jatt.com).mp3",
+             "https://cdn9.upload.solutions/5f2d3944ad20ff486bf41aef4046001d/uuhzv/Laal%20Bindi-(Mr-Jatt.com).mp3", "https://cdn10.upload.solutions/a75a19c1769e9987bb8a0987d580ec8d/cgeov/Boss-(Mr-Jatt.com).mp3",
+             "https://cdn11.upload.solutions/770f3e3fe933ec6591d5be6d01951171/qmzov/Kurta%20Pajama-(Mr-Jatt.com).mp3", "https://cdn10.upload.solutions/bee1c89d008ca56bae20386cc8354e4a/lhaov/Teri%20Mitti-(Mr-Jatt.com).mp3",
+             "https://cdn10.upload.solutions/ecf83cacd04fe27a351a52f2f4b7c046/mkuov/Malang%20Title%20Track-(Mr-Jatt.com).mp3", "https://cdn10.upload.solutions/9a6170ae40afe287fc39b5e2c9a93302/wagov/Sheher%20Ki%20Ladki-(Mr-Jatt.com).mp3",
+             "https://cdn10.upload.solutions/a3a86043525ec92a9425fdd32e427eaa/ocbov/Vaaste-(Mr-Jatt.com).mp3", "https://cdn10.upload.solutions/fb316a17908002637fb26a245106e6cf/uvbov/Yaari-(Mr-Jatt.com).mp3",
+             "https://cdn10.upload.solutions/fd1222fb558fa35b7608138b05f4fdae/rjmov/Teri%20Yaari-(Mr-Jatt.com).mp3","https://cdn11.upload.solutions/3cc71e1ad9c90447e599badee69b5880/zfzov/Yalgaar-(Mr-Jatt.com).mp3",
+             "https://cdn10.upload.solutions/a062bc53fcd568557671c0dfd8173250/ldsov/Kamaal-(Mr-Jatt.com).mp3","https://cdn10.upload.solutions/4f555ab7891f1e44902ba369388f7330/agjov/Khairiyat%20%20Sad%20-(Mr-Jatt.com).mp3",
+             "https://cdn9.upload.solutions/836632bb9064ccf16be549858134e211/dvzzv/Lahore-(Mr-Jatt.com).mp3","https://cdn10.upload.solutions/3d62fc892549ce48502154251ed115d7/spuov/Shoot%20Da%20Order-(Mr-Jatt.com).mp3"]
+          var num1 = 0;
+
+		function nextsong(){
+                 
+                 var slide = document.getElementById('music');
+                 num1++;
+                 if (num1>= ganna.length) {
+                 	num1 = 0;
+                 }
+                 slide.src = ganna[num1];
+                 document.getElementById('music').play();
+             }
+
+		function prewsong(){
+                 
+                 var slide = document.getElementById('music');
+                 num1--;
+                 if (num1 < 0) {
+                 	num1 = ganna.length - 1
+                 }
+                 slide.src = ganna[num1];
+                 document.getElementById('music').play();
+             }
+ 
+
+var myAudio = document.getElementById("music");
+
+function togglePlay() {
+
+	if(music.paused){
+		 music.play();
+		let bt = document.getElementById('changeimage');
+		bt.src = "play.jpg";
+	}
+	else{
+		 music.pause();
+		let ct = document.getElementById('changeimage');
+		ct.src = "stop.jpg";
+	}
+  
+};
+
+
+
+
+
+  
+
+		
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  </script>
+
+
+
+</head>
+<body><div class="main">
+
+	<div class="container">
+		<img src="https://images.hungama.com/c/1/0b3/cf0/39348659/39348659_300x300.jpg" class="songimg"  id="moveimg">
+		<h2 class="songname" id="movename">High Rated Gabru</h2>
+        <p class="singername" id="movesinger">By : Guru Randhawa</p>
+
+       
+
+
+
+       <div  id="bar" class="probar">
+       	<div id="fill"></div>
+       	<div id="handle"></div>
+       </div>
+       
+
+
+        
+
+
+        <div class="control">
+        	<a><img src="back.jpg" width="40px"  class="sign" height="40px" onclick="prew() , prewname() , prewsinger() , prewsong()"></a>
+
+        	<a><img src="stop.jpg" width="40px" id="changeimage" class="sign" height="40px" onclick="togglePlay()">
+        		<audio src="https://cdn9.upload.solutions/baabd7548082c946d2e457fc879e53dd/gzbzv/High%20Rated%20Gabru-(Mr-Jatt.com).mp3" preload="auto" id="music"></audio></a>
+
+        	<a ><img src="for.jpg" width="40px" class="sign" height="40px" onclick="next() , nextname() , nextsinger(), nextsong()"></a>
+        
+      
+	</div>
+</div>
+
+<div class="social-icon">
+	<a href="https://www.instagram.com/sain_nitin200/"><i class="fab fa-instagram"></i></a>
+	<a href="https://www.facebook.com/nitin.sain.37669528"><i class="fab fa-facebook"></i></a>
+	<a href="https://www.linkedin.com/in/nitin-sain-34a4671b2"><i class="fab fa-linkedin"></i></a>
+	<a href="https://github.com/Nitin326"><i class="fab fa-github"></i></a>
+</div>
+<div class="copy"><a href="https://nitin326.github.io/imnitin.github.io/">Designed by Nitin Sain</a></div>
+
+	
+
+	</div>
+</body>
+</html> 
